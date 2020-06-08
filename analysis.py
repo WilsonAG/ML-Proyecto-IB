@@ -8,7 +8,6 @@ if __name__ == "__main__":
         print(str(item)+'\n\n')
         item = str(item).strip()
         print(nlp.clean(item)+'\n\n')
-        if index == 536:
-            break
+        break
 
         index += 1

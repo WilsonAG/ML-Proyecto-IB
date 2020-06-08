@@ -6,11 +6,13 @@ from nltk.corpus import stopwords
 import pandas as pd
 import numpy as np
 import re
+from unidecode import unidecode
 
 
 def clean(a):
     b = a.lower()
-    c = re.sub('[^A-Za-z]+', ' ', b)
+    # c = unidecode(b)
+    c = re.sub('[^a-zA-Z\u00C0-\u017F]+', ' ', b)
     return c
 
 
