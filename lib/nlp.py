@@ -7,13 +7,15 @@ import pandas as pd
 import numpy as np
 import re
 from unidecode import unidecode
+import emoji
 
 
 def clean(a):
+    emojis = [c for c in a if c in emoji.UNICODE_EMOJI]
     b = a.lower()
-    # c = unidecode(b)
-    c = re.sub('[^a-zA-Z\u00C0-\u017F]+', ' ', b)
-    return c
+    c = unidecode(b)
+    c = re.sub('[^a-zA-Z\u00C0-\u017F]+', ' ', c)
+    return c+''.join(emojis)
 
 
 def clean_stop_words(titles):
