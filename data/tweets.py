@@ -14,7 +14,7 @@ api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
 # tweets = api.search(q="coronavirus", tweet_mode='extended', lang='es')
 tweets = tweepy.Cursor(api.search, q='coronavirus ecuador -filter:retweets',
-                       lang='es', tweet_mode='extended', geo_code="-1.39459,-78.39924", since='2020-06-02').items(500)
+                       lang='es', tweet_mode='extended', geo_code="-1.39459,-78.39924", since='2020-06-05').items(500)
 
 my_tweets = []
 for tw in tweets:
