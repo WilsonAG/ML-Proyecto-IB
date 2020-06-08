@@ -13,7 +13,7 @@ import emoji
 def clean(a):
     emojis = [c for c in a if c in emoji.UNICODE_EMOJI]
     a = a.split()
-    a = [i for i in a if '@' not in i]
+    a = [i for i in a if i[0] != '@']
     a = " ".join(a)
     b = a.lower()
     c = unidecode(b)
