@@ -11,11 +11,17 @@ import emoji
 
 
 def clean(a):
-    emojis = [c for c in a if c in emoji.UNICODE_EMOJI]
+    print(a)
+    a=a.split()
+    for i in a:
+        if '@' in i:
+            a.remove(i)
+    a=" ".join(a)
+    print(a)
     b = a.lower()
-    c = unidecode(b)
-    c = re.sub('[^a-zA-Z\u00C0-\u017F]+', ' ', c)
-    return c+''.join(emojis)
+    # c = unidecode(b)
+    c = re.sub('[^a-zA-Z\u00C0-\u017F]+', ' ', b)
+    return c
 
 
 def clean_stop_words(titles):
