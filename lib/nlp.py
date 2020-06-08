@@ -3,6 +3,7 @@ import timeit
 import math as ma
 from nltk.stem.porter import PorterStemmer
 from nltk.corpus import stopwords
+from nltk.stem.snowball import SnowballStemmer
 import pandas as pd
 import numpy as np
 import re
@@ -22,7 +23,7 @@ def clean(a):
 
 
 def clean_stop_words(titles):
-    stop_words = stopwords.words('english')
+    stop_words = stopwords.words('spanish')
     for word in stop_words:
         if word in titles:
             titles.remove(word)
@@ -30,11 +31,18 @@ def clean_stop_words(titles):
 
 
 def clean_stemmer(titles):
-    stemmer = PorterStemmer()
+    stemmer = SnowballStemmer('spanish')
     new_titles = []
     for item in titles:
         new_titles.append(stemmer.stem(item))
     return new_titles
+
+# def clean_stemmer(titles):
+#     stemmer = PorterStemmer()
+#     new_titles = []
+#     for item in titles:
+#         new_titles.append(stemmer.stem(item))
+#     return new_titles
 
 
 def to_string(titles):
@@ -170,3 +178,11 @@ def get_cos_mtx(tf_idf_mtx):
             cos_mtx['doc'+str(j)]['doc'+str(i)] = value
 
     return cos_mtx
+
+# text="RT @Lenin: @DrJuanCZevallos confirmó que el 89% de contagiados por #COVID19 se han recuperado. De las 110.812 pruebas realizadas, menos de…"
+# text=(clean(text))
+# print(text)
+# text=clean_stop_words(text.split())
+# print(text)
+# text=clean_stemmer(text)
+# print(text)
