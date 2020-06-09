@@ -19,7 +19,7 @@ def clean(a):
     b = a.lower()
     c = unidecode(b)
     c = re.sub('[^a-zA-Z\u00C0-\u017F]+', ' ', c)
-    return c+''.join(emojis)
+    return c+' '+' '.join(emojis)
 
 
 def clean_stop_words(titles):
@@ -98,11 +98,6 @@ def get_positions(token, docs):
 
 
 def get_fii(docs):
-
-    newdoc = []
-    for doc in docs:
-        newdoc.append(clean(doc))
-    docs = newdoc
     my_dict = get_dict(docs)
     fii = map(lambda x: get_positions(x, docs), my_dict)
     return list(fii)
@@ -110,7 +105,7 @@ def get_fii(docs):
 
 def get_tf_word_bag(fii, palabras, documentos, weighted=True):
     tb_tf = pd.DataFrame(float(0), index=palabras, columns=[
-                         'doc'+str(x) for x in range(len(abstracts))])
+                         'doc'+str(x) for x in range(len(palabras))])
     for i in fii:
         con = 0
         for j in i:
