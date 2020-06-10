@@ -15,6 +15,7 @@ def clean(a):
     emojis = [c for c in a if c in emoji.UNICODE_EMOJI]
     a = a.split()
     a = [i for i in a if i[0] != '@']
+    a = [i for i in a if not re.search('^http', i)]
     a = " ".join(a)
     b = a.lower()
     c = unidecode(b)
