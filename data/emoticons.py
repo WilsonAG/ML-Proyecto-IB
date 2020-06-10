@@ -1,6 +1,8 @@
 import emoji
-import sys
+import json
 
-# emoji.emojkize(use_aliases=True)
+bad_emojis = open('data/emojis/bad_emojis.json', 'r')
+bad_emojis = json.load(bad_emojis)
 
-print(sys.version_info[0])
+for i in bad_emojis:
+    print(i)
