@@ -30,13 +30,13 @@ if __name__ == "__main__":
     good_emoticon='data/emojis/good_emojis.json'
     bad_emoticon='data/emojis/bad_emojis.json'
 
-    index = 0
-    docs=list(map(lambda x: str(x).strip(),data['tweets']))
-    docs=list(map(nlp.clean,docs))
-    #print(docs[806])
-    docs=list(map(lambda x: x.split(),docs))
-    docs=list(map(nlp.clean_stop_words,docs))
-    docs=list(map(nlp.clean_stemmer,docs))
+    # index = 0
+    # docs=list(map(lambda x: str(x).strip(),data['tweets']))
+    # docs=list(map(nlp.clean,docs))
+    # #print(docs[806])
+    # docs=list(map(lambda x: x.split(),docs))
+    # docs=list(map(nlp.clean_stop_words,docs))
+    # docs=list(map(nlp.clean_stemmer,docs))
     # fii=nlp.get_fii(docs)
 
     good=get_dictionary(good)
@@ -47,7 +47,7 @@ if __name__ == "__main__":
     bad+=bad_emoticon
     print(len(good))
     print(len(bad))
-    
+    print(len(bad)-len(good))
     
     # doc=docs[806]
     # print(doc)
