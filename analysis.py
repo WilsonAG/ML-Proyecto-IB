@@ -25,8 +25,8 @@ def get_jaccard(query, document):
 
 if __name__ == "__main__":
     data = pd.read_excel('./data.xlsx', encoding='utf-8')
-    good='./data/new/buenas.txt'
-    bad='./data/new/mala.txt'
+    good='./data/diccionary/buenas.txt'
+    bad='./data/diccionary/malas.txt'
     good_emoticon='data/emojis/good_emojis.json'
     bad_emoticon='data/emojis/bad_emojis.json'
 
