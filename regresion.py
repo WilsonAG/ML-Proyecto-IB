@@ -3,6 +3,9 @@ import pandas as pd
 import lib.emoticons as emo
 import emoji
 import random
+from sklearn.model_selection import train_test_split 
+
+
 
 if __name__ == "__main__":
     datac=pd.read_csv('./data/tweets/tweets.csv', encoding='utf-8')
@@ -17,10 +20,18 @@ if __name__ == "__main__":
             sen.append('+')
         else:
             sen.append('-')
+        print(i)
     fii=nlp.get_fii(data,None,True)
     diccionario=[i[0] for i in fii]
 
+    print(data)
     #to do 2 data set
+    train,test=train_test_split(data,test_size = 0.30)
+    print("Ejemplos usados para entrenar: ", len(train))
+    print("Ejemplos usados para test: ", len(test))
+    print(test)
+    print('-------------------------------------------------------------------------------------------------------------------------')
+    print(train)
     # matrix de coseno
     # regresion  toca analizar
 
