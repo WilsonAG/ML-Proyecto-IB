@@ -11,6 +11,24 @@ from unidecode import unidecode
 import emoji
 
 
+def get_dictionary(doc):
+    f = open(doc, encoding='utf-8')
+    dictionary = []
+    for i in f:
+        dictionary.append(i)
+    dictionary = list(map(clean, dictionary))
+    dictionary = list(map(lambda x: x.split(), dictionary))
+    dictionary = list(map(clean_stemmer, dictionary))
+    dictionary = list(map(lambda x: " ".join(x), dictionary))
+    return list(set(dictionary))
+
+
+def get_jaccard(query, document):
+    interseccion = len(query.intersection(document))
+    union = len(query.union(document))
+    return interseccion / union
+
+
 def clean(a):
     emojis = [c for c in a if c in emoji.UNICODE_EMOJI]
     a = a.split()
@@ -101,7 +119,7 @@ def get_positions(token, docs):
     return all_matches
 
 
-def get_fii(docs,diccionary):
+def get_fii(docs, diccionary):
     #my_dict = get_dict(docs)
     fii = map(lambda x: get_positions(x, docs), diccionary)
     return list(fii)
