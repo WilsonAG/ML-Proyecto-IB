@@ -1829,7 +1829,6 @@ optimista
 actualizable
 actualizable
 actualizado
-confirmado
 defender
 edificación
 edificante
@@ -2346,3 +2345,8 @@ estudiantes
 zoom
 abstenerse
 abstinencia
+reabrir
+abrio
+nuevos
+protocolos
+rehabilitacio

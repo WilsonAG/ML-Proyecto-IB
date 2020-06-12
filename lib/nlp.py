@@ -101,9 +101,9 @@ def get_positions(token, docs):
     return all_matches
 
 
-def get_fii(docs):
-    my_dict = get_dict(docs)
-    fii = map(lambda x: get_positions(x, docs), my_dict)
+def get_fii(docs,diccionary):
+    #my_dict = get_dict(docs)
+    fii = map(lambda x: get_positions(x, docs), diccionary)
     return list(fii)
 
 

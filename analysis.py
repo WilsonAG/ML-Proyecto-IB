@@ -2,6 +2,7 @@ import lib.nlp as nlp
 import pandas as pd
 import lib.emoticons as emo
 import emoji
+import random
 
 def get_dictionary(doc):
     f=open(doc,encoding='utf-8')
@@ -19,8 +20,13 @@ def get_jaccard(query, document):
     union = len(query.union(document))
     return interseccion / union
 
-    
-
+def get_etiquetado(more,low):
+    if more>low:
+        return "Positivo"
+    elif low>more:
+        return "Negativo"
+    else:
+        return "Neutro"
 
 
 if __name__ == "__main__":
@@ -29,15 +35,18 @@ if __name__ == "__main__":
     bad='./data/diccionary/malas.txt'
     good_emoticon='data/emojis/good_emojis.json'
     bad_emoticon='data/emojis/bad_emojis.json'
+    
 
-    # index = 0
-    # docs=list(map(lambda x: str(x).strip(),data['tweets']))
-    # docs=list(map(nlp.clean,docs))
-    # #print(docs[806])
-    # docs=list(map(lambda x: x.split(),docs))
-    # docs=list(map(nlp.clean_stop_words,docs))
-    # docs=list(map(nlp.clean_stemmer,docs))
-    # fii=nlp.get_fii(docs)
+    docs=list(map(lambda x: str(x).strip(),data['tweets']))
+    docs=list(map(nlp.clean,docs))
+    num=random.randrange(len(docs))
+    print(num)
+    # print(num)
+    print(docs[num])
+    docs=list(map(lambda x: x.split(),docs))
+    docs=list(map(nlp.clean_stop_words,docs))
+    docs=list(map(nlp.clean_stemmer,docs))
+    # # fii=nlp.get_fii(docs)
 
     good=get_dictionary(good)
     bad=get_dictionary(bad)
@@ -45,14 +54,19 @@ if __name__ == "__main__":
     bad_emoticon=emo.get_emojis(bad_emoticon)
     good+=good_emoticon
     bad+=bad_emoticon
-    print(len(good))
-    print(len(bad))
+
+    # print(len(good))
+    # print(len(bad))
     print(len(bad)-len(good))
     
-    # doc=docs[806]
-    # print(doc)
+    doc=docs[num]
+    print(doc)
+
+    more=get_jaccard(set(good),set(doc))
+    low=get_jaccard(set(bad),set(doc))
+    etiqueta=get_etiquetado(more,low)
+    print(etiqueta)
+
+    good_fii=nlp.get_fii(docs,good)
+    bad_fii=nlp.get_fii(docs,bad)
     
-    # more=get_jaccard(set(good),set(doc))
-    # low=get_jaccard(set(bad),set(doc))
-
-
