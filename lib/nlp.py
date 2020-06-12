@@ -10,6 +10,14 @@ from unidecode import unidecode
 import emoji
 
 
+def do_cosine_method(fii, dictionary, docs):
+    tf = get_tf_word_bag(fii, dictionary, docs, True)
+    wtf = get_tf_word_bag(fii, dictionary, docs, False)
+    df = get_df_idf(dictionary, tf, wtf, False)
+    idf = get_df_idf(dictionary, tf, wtf, True)
+    return get_mtx_tf_idf(dictionary, docs, wtf, idf)
+
+
 def get_dictionary(doc):
     f = open(doc, encoding='utf-8')
     dictionary = []
@@ -119,13 +127,13 @@ def get_positions(token, docs):
 
 
 def get_fii(docs, diccionary):
-    my_dict=diccionary
-    fii = map(lambda x: get_positions(x, docs),my_dict )
+    my_dict = diccionary
+    fii = map(lambda x: get_positions(x, docs), my_dict)
     return list(fii)
 
 
 def get_tf_word_bag(fii, palabras, documentos, weighted=True):
-    #print(palabras)
+    # print(palabras)
     tb_tf = pd.DataFrame(float(0), index=palabras, columns=[
                          x for x in range(len(documentos))])
     for i in fii:
@@ -135,7 +143,8 @@ def get_tf_word_bag(fii, palabras, documentos, weighted=True):
                 if weighted == False:
                     tb_tf._set_value(i[0], j[0], j[1])  # tabla tf
                 else:
-                    tb_tf._set_value(i[0], j[0],(1+ma.log(j[1], 10)))  # tabla wtf
+                    tb_tf._set_value(
+                        i[0], j[0], (1+ma.log(j[1], 10)))  # tabla wtf
             con += 1
     return tb_tf
 
@@ -160,7 +169,7 @@ def get_df_idf(palabras, tb_tf, tb_wtf, idf=True):
 
 def get_mtx_tf_idf(palabras, abstracts, tb_wtf, idf):
     tb_tf_idf = pd.DataFrame(float(0), index=palabras, columns=[
-                             'doc'+str(x) for x in range(len(abstracts))])
+                             x for x in range(len(abstracts))])
     for index, row in tb_wtf.iterrows():
         for i, ind in row.iteritems():
             # index nombre fila , # i columna nombre, #ind term frecuency
@@ -187,11 +196,11 @@ def get_cos_mtx(tf_idf_mtx):
     for i in range(len(labels)):
         for j in range(i, len(labels)):
 
-            doc1 = tf_idf_mtx['doc'+str(i)].tolist()
-            doc2 = tf_idf_mtx['doc'+str(j)].tolist()
+            doc1 = tf_idf_mtx[i].tolist()
+            doc2 = tf_idf_mtx[j].tolist()
             value = sum(val1*val2 for val1, val2 in zip(doc1, doc2))
-            cos_mtx['doc'+str(i)]['doc'+str(j)] = value
-            cos_mtx['doc'+str(j)]['doc'+str(i)] = value
+            cos_mtx[i][j] = value
+            cos_mtx[j][i] = value
 
     return cos_mtx
 

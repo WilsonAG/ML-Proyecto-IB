@@ -11,10 +11,6 @@ if __name__ == "__main__":
     bad_words = nlp.get_dictionary('data/new/mala.txt')
 
     fii_good = nlp.get_fii(twts, good_words)
-    tf = nlp.get_tf_word_bag(fii_good, good_words, twts, True)
-    wtf = nlp.get_tf_word_bag(fii_good, good_words, twts, False)
-    df = nlp.get_df_idf(good_words, tf, wtf, False)
-    idf = nlp.get_df_idf(good_words, tf, wtf, True)
-    tb_tf_idf = nlp.get_mtx_tf_idf(good_words, twts, wtf, idf)
+    simi = nlp.do_cosine_method(fii_good, good_words, twts)
 
-    print(sum(tb_tf_idf[0]))
+    print(simi)
