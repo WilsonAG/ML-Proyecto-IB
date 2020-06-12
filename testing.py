@@ -14,3 +14,9 @@ if __name__ == "__main__":
     simi = nlp.do_cosine_method(fii_good, good_words, twts)
 
     print(nlp.get_dictionary(False))
+
+    # data = pd.read_excel('./data.xlsx', encoding='utf-8')
+    # data = data.sample(n=1000)
+
+    # train = data.sample(frac=0.7, random_state=0)
+    # test = data.drop(train.index)

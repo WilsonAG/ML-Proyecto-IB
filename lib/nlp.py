@@ -131,18 +131,13 @@ def get_positions(token, docs):
     return all_matches
 
 
-def get_fii(docs, diccionary,need=True):
-    if need:
+def get_fii(docs, dictionary):
+    if len(dictionary) > 0:
         my_dict = get_dict(docs)
     else:
-        my_dict = diccionary
+        my_dict = dictionary
     fii = map(lambda x: get_positions(x, docs), my_dict)
     return list(fii)
-
-# def get_fii(docs,diccionary,nedd=True):
-#     my_dict = get_dict(docs)
-#     fii = map(lambda x: get_positions(x, docs), my_dict)
-#     return list(fii)
 
 
 def get_tf_word_bag(fii, palabras, documentos, weighted=True):
@@ -216,11 +211,3 @@ def get_cos_mtx(tf_idf_mtx):
             cos_mtx[j][i] = value
 
     return cos_mtx
-
-# text="RT @Lenin: @DrJuanCZevallos confirmó que el 89% de contagiados por #COVID19 se han recuperado. De las 110.812 pruebas realizadas, menos de…"
-# text=(clean(text))
-# print(text)
-# text=clean_stop_words(text.split())
-# print(text)
-# text=clean_stemmer(text)
-# print(text)
