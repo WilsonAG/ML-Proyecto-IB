@@ -23,13 +23,14 @@ if __name__ == "__main__":
     docs = list(map(lambda x: str(x).strip(), data['tweets']))
     docs = list(map(nlp.clean, docs))
     num = random.randrange(len(docs))
-    print(num)
     # print(num)
-    print(docs[num])
+    # # print(num)
+    # print(docs[num])
     docs = list(map(lambda x: x.split(), docs))
     docs = list(map(nlp.clean_stop_words, docs))
     docs = list(map(nlp.clean_stemmer, docs))
-    # fii=nlp.get_fii(docs)
+    #fii=nlp.get_fii(docs)
+    
 
     good = nlp.get_dictionary(good)
     bad = nlp.get_dictionary(bad)
@@ -38,17 +39,24 @@ if __name__ == "__main__":
     good += good_emoticon
     bad += bad_emoticon
 
-    print(len(bad)-len(good))
+    # print(len(bad)-len(good))
 
     doc = docs[num]
-    print(doc)
+    # print(doc)
 
-    more = nlp.get_jaccard(set(good), set(doc))
-    low = nlp.get_jaccard(set(bad), set(doc))
-    etiqueta = get_etiquetado(more, low)
-    print(etiqueta)
+    # more = nlp.get_jaccard(set(good), set(doc))
+    # low = nlp.get_jaccard(set(bad), set(doc))
+    # etiqueta = get_etiquetado(more, low)
+    # print(etiqueta)
 
+    #docs=list(map(lambda x : " ".join(x),docs))
     good_fii = nlp.get_fii(docs, good)
     bad_fii = nlp.get_fii(docs, bad)
+    docs = list(map(nlp.to_string, docs))
+    palabras = []
+    for i in good_fii:
+        palabras.append(i[0])
+    wtf_good=nlp.get_tf_word_bag(good_fii, good, docs,True)
+    print(wtf_good)
+    #wtf_bad=nlp.get_tf_word_bag(bad_fii,pa)
 
-    

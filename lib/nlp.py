@@ -112,7 +112,7 @@ def get_positions(token, docs):
         matches = []
         if token in doc:
             indexes = [i for i, x in enumerate(doc) if x == token]
-            # matches += [docs.index(doc), len(indexes), indexes]
+            #matches += [docs.index(doc), len(indexes), indexes]
             matches += [docs.index(doc), len(indexes)]
         if matches:
             all_matches.append(matches)
@@ -120,23 +120,23 @@ def get_positions(token, docs):
 
 
 def get_fii(docs, diccionary):
-    #my_dict = get_dict(docs)
-    fii = map(lambda x: get_positions(x, docs), diccionary)
+    my_dict=diccionary
+    fii = map(lambda x: get_positions(x, docs),my_dict )
     return list(fii)
 
 
 def get_tf_word_bag(fii, palabras, documentos, weighted=True):
+    #print(palabras)
     tb_tf = pd.DataFrame(float(0), index=palabras, columns=[
-                         'doc'+str(x) for x in range(len(palabras))])
+                         x for x in range(len(documentos))])
     for i in fii:
         con = 0
         for j in i:
             if con != 0:
                 if weighted == False:
-                    tb_tf._set_value(i[0], "doc"+str(j[0]), j[1])  # tabla tf
+                    tb_tf._set_value(i[0], j[0], j[1])  # tabla tf
                 else:
-                    tb_tf._set_value(i[0], "doc"+str(j[0]),
-                                     (1+ma.log(j[1], 10)))  # tabla wtf
+                    tb_tf._set_value(i[0], j[0],(1+ma.log(j[1], 10)))  # tabla wtf
             con += 1
     return tb_tf
 
