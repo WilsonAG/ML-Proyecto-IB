@@ -112,7 +112,7 @@ def get_positions(token, docs):
         matches = []
         if token in doc:
             indexes = [i for i, x in enumerate(doc) if x == token]
-            # matches += [docs.index(doc), len(indexes), indexes]
+            #matches += [docs.index(doc), len(indexes), indexes]
             matches += [docs.index(doc), len(indexes)]
         if matches:
             all_matches.append(matches)
@@ -120,43 +120,9 @@ def get_positions(token, docs):
 
 
 def get_fii(docs, diccionary):
-    #my_dict = get_dict(docs)
-    fii = map(lambda x: get_positions(x, docs), diccionary)
+    my_dict = diccionary
+    fii = map(lambda x: get_positions(x, docs), my_dict)
     return list(fii)
-
-
-def get_tf_word_bag(fii, palabras, documentos, weighted=True):
-    tb_tf = pd.DataFrame(float(0), index=palabras, columns=[
-                         x for x in range(len(documentos))])
-    for i in fii:
-        con = 0
-        for j in i:
-            if con != 0:
-                if weighted == False:
-                    tb_tf._set_value(i[0], j[0], j[1])  # tabla tf
-                else:
-                    tb_tf._set_value(i[0], j[0],
-                                     (1+ma.log(j[1], 10)))  # tabla wtf
-            con += 1
-    return tb_tf
-
-
-def get_df_idf(palabras, tb_tf, tb_wtf, idf=True):
-    df = pd.DataFrame(float(0), index=palabras, columns=['frecuency'])
-    for index, row in tb_tf.iterrows():
-        con = 0
-        for i, ind in row.iteritems():
-            if ind != 0:
-                con += 1
-        if idf == True:
-            if con != 0:
-                op = ma.log((len(tb_wtf.columns)/con), 10)
-                df._set_value(index, 'frecuency', op)
-            else:
-                df._set_value(index, 'frecuency', con)
-        else:
-            df._set_value(index, 'frecuency', con)
-    return df
 
 
 def get_mtx_tf_idf(palabras, abstracts, tb_wtf, idf):
