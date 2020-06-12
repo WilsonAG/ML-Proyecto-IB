@@ -85,15 +85,13 @@ def to_string(titles):
     return document.strip()
 
 
-def do_nlp(lista, stop_words=False):
-    new_list = []
-    for doc in lista:
-        doc = clean(doc).strip().split()
-        if stop_words:
-            doc = clean_stop_words(doc)
-        doc = clean_stemmer(doc)
-        new_list.append(doc)
-    return new_list
+def do_nlp(docs):
+    docs = list(map(lambda x: str(x).strip(), docs))
+    docs = list(map(clean, docs))
+    docs = list(map(lambda x: x.split(), docs))
+    docs = list(map(clean_stop_words, docs))
+    docs = list(map(clean_stemmer, docs))
+    return docs
 
 
 def get_jackar(docs):
