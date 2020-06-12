@@ -131,10 +131,18 @@ def get_positions(token, docs):
     return all_matches
 
 
-def get_fii(docs, diccionary):
-    my_dict = diccionary
+def get_fii(docs, diccionary,need=True):
+    if need:
+        my_dict = get_dict(docs)
+    else:
+        my_dict = diccionary
     fii = map(lambda x: get_positions(x, docs), my_dict)
     return list(fii)
+
+# def get_fii(docs,diccionary,nedd=True):
+#     my_dict = get_dict(docs)
+#     fii = map(lambda x: get_positions(x, docs), my_dict)
+#     return list(fii)
 
 
 def get_tf_word_bag(fii, palabras, documentos, weighted=True):

@@ -46,9 +46,9 @@ if __name__ == "__main__":
     # print(etiqueta)
     # #docs=list(map(lambda x : " ".join(x),docs))
     
-    docs=docs[0:10]
-    good_fii = nlp.get_fii(docs, good)
-    bad_fii = nlp.get_fii(docs, bad)
+    docs=docs[0:20]
+    good_fii = nlp.get_fii(docs, good,False)
+    bad_fii = nlp.get_fii(docs, bad,False)
     docs = list(map(nlp.to_string, docs))
     resp=nlp.do_cosine_method(good_fii, good, docs)
     print(resp)
