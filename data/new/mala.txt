@@ -164,7 +164,7 @@ torpe
 torpeza
 apartada
 espalda
-dolor 
+dolor
 malo
 mal
 desconcertado
@@ -1059,7 +1059,7 @@ falla
 fracaso
 fallas
 desmayarse
-Débil 
+Débil
 desleal
 falso
 falacias
@@ -1263,7 +1263,7 @@ ignorar
 desafortunado
 malhumorado
 maltratado
-malos 
+malos
 ilegal
 ilegalmente
 ilegítimo
@@ -1693,7 +1693,7 @@ fuga
 fuga
 fugas
 agujereado
-hombre 
+hombre
 lascivo
 lascivia
 sospechoso
@@ -1837,7 +1837,7 @@ falsificar
 tergiversación
 pierda
 perdido
-declaración 
+declaración
 errónea
 Error
 equivocado
@@ -1997,7 +1997,6 @@ embate
 dogmático
 adversario
 oportunista
-oponerse a
 oposición
 oposiciones
 oprimir
@@ -2030,7 +2029,7 @@ marchito
 exagerar
 exagerado
 atrasado
-enfatizar 
+enfatizar
 sobrecalentar
 exagerar
 sobrecargado
@@ -2076,8 +2075,6 @@ complacer
 panders
 pánico
 pánico
-en pánico
-en pánico
 paradójico
 paradójicamente
 paralizar
@@ -2100,7 +2097,6 @@ mendigos
 recuperación
 peculiar
 pedante
-mal humor
 furioso
 malhumorado
 penalizar
@@ -2204,7 +2200,6 @@ pretencioso
 pretenciosamente
 prevaricar
 caro
-más caro
 pinchazo
 picazón
 espinas
@@ -2536,14 +2531,12 @@ autocrítica
 autodestructivo
 autodestructivo
 humillación
-interés propio
 egoísta
 egoísta
 selfinterested
 egoísta
 egoístamente
 egoísmo
-semi retardado
 senil
 sensacionalista
 sermonear
@@ -2719,8 +2712,6 @@ estropeado
 malcriado
 botín
 espectro
-más espeluznante
-más espeluznante
 espeluznante
 escalofriante
 esporádico
@@ -2728,7 +2719,7 @@ manchado
 espurio
 rechazar
 chisporroteo
-reñir 
+reñir
 riñas
 malgastar
 chirrido
@@ -3088,7 +3079,6 @@ indeseable
 indeterminado
 deshacer
 indigno
-sin disolver
 indocumentado
 deshecho
 indebido
@@ -3216,9 +3206,8 @@ renuencia
 imprudente
 imprudentemente
 impracticable
-indigno de
 inflexible
-reprender 
+reprender
 convulsión
 escándalo
 estruendoso
@@ -3331,7 +3320,7 @@ ira
 infligir
 destrozado
 ruina
-arrancar 
+arrancar
 arrebatar
 desgraciado
 miserable

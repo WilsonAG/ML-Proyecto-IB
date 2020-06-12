@@ -210,13 +210,9 @@ hermoso
 prima
 bonos
 auge
-en auge
 aumentar
-sin límites
 abundante
-más inteligente
 inteligente
-Para estrenar
 valiente
 valentía
 Bravo
@@ -280,13 +276,11 @@ clásico
 tono
 limpiar
 limpiador
-más limpio
 limpieza
 limpiamente
 claro
 claro
 despejado
-más claro
 claramente
 despeja
 inteligente
@@ -353,7 +347,7 @@ frio
 cool
 cooperativa
 cooperativamente
-piedra 
+piedra
 angular
 correcto
 correctamente
@@ -376,7 +370,7 @@ creíble
 crujiente
 crujiente
 cura
-curar 
+curar
 todo
 fácil
 lindo
@@ -390,8 +384,6 @@ amanecer
 deslumbrar
 deslumbrado
 deslumbrante
-muy barato
-muerto en
 decencia
 bueno
 decisivo
@@ -616,7 +608,6 @@ excepcional
 excepcionalmente
 excitar
 emocionado
-con entusiasmo
 entusiasmo
 emoción
 excita
@@ -687,7 +678,6 @@ favorito
 favorecido
 favor
 audaz
-sin miedo
 factible
 factiblemente
 Con
@@ -706,7 +696,6 @@ festivo
 fidelidad
 ardiente
 multa
-bien parecido
 finamente
 fino
 mejor
@@ -744,7 +733,6 @@ libertad
 libertades
 Fresco
 novato
-más fresco
 amabilidad
 simpático
 fiesta
@@ -765,7 +753,6 @@ ganando
 ganancias
 galante
 gallardamente
-en abundancia
 geekier
 geek
 joya
@@ -787,7 +774,6 @@ atractivo
 alegría
 jubiloso
 alegremente
-luz tenue
 brillando
 relucir
 brillante
@@ -809,7 +795,6 @@ dorado
 bueno
 hermoso
 bondad
-buena voluntad
 bueno
 bueno
 maravilloso
@@ -844,7 +829,6 @@ chorro
 entusiasmo
 valiente
 granizo
-martín pescador
 sano
 contraste
 distintivos
@@ -859,7 +843,7 @@ feliz
 felizmente
 felicidad
 contento
-trabajo 
+trabajo
 duro
 resistente
 resistente
@@ -888,7 +872,7 @@ heroicamente
 heroína
 heroizar
 héroes
-alta 
+alta
 calidad
 alegre
 divertidísimo
@@ -904,7 +888,7 @@ hurra
 esperanzado
 hospitalario
 caliente
-pastel 
+pastel
 caliente
 panqueques
 caliente
@@ -1079,7 +1063,7 @@ encantador
 amante
 ama
 amoroso
-bajo 
+bajo
 costo
 preci
 riesgo
@@ -1124,8 +1108,6 @@ maravillas
 Maestro
 maestro
 magistralmente
-obra maestra
-obras maestras
 maestros
 maestría
 incomparable
@@ -1168,11 +1150,9 @@ moralidad
 motivado
 navegable
 ordenado
-más limpio
 pulcramente
 bonito
 bien
-más agradable
 mejor
 hábil
 ágil
@@ -1240,7 +1220,6 @@ pacífico
 pacífico
 pacíficamente
 melocotón
-sin igual
 energía
 picado
 pimiento
@@ -1317,8 +1296,7 @@ privilegio
 privilegiado
 premio
 proactivo
-sin problemas
-solucionador 
+solucionador
 prodigioso
 prodigiosamente
 prodigio
@@ -1503,7 +1481,6 @@ legítimo
 legítimamente
 correctamente
 justicia
-Sin riesgo
 robusto
 estrellas
 romántico
@@ -1533,7 +1510,6 @@ ahorros
 salvador
 comprensión
 escénico
-sin costura
 sazonado
 seguro
 segura
@@ -1670,7 +1646,6 @@ subvencionado
 subsidios
 subsidio
 sustantivo
-tener éxito
 triunfado
 subsiguiente
 éxito
@@ -1705,7 +1680,6 @@ supremo
 supremamente
 supurb
 supurablemente
-superar a
 superar
 surrealista
 supervivencia
@@ -1742,7 +1716,6 @@ estupendo
 terriblemente
 gracias
 agradecido
-más delgada
 pensativo
 pensativamente
 consideración
@@ -1806,7 +1779,6 @@ imparcial
 consolidar
 complicaciones
 incondicional
-sin daños
 impávido
 comprensible
 indiscutible
@@ -1870,7 +1842,6 @@ vívido
 atestiguar
 conceder
 calentar
-más cálido
 afectuoso
 calurosamente
 calor
@@ -1908,7 +1879,7 @@ complaciente
 gana
 disponibilidad
 ganar
-ganancia 
+ganancia
 inesperada
 ganable
 ganador
@@ -1932,7 +1903,7 @@ trabajo
 factible
 trabajó
 trabajos
-mundialmente 
+mundialmente
 famoso
 valor
 dignidad
@@ -1994,7 +1965,7 @@ proteccion
 seguridad
 amistad
 deseo
-bienestar 
+bienestar
 calidad
 precio
 brillar
@@ -2168,7 +2139,7 @@ almuerzo
 merienda
 cacho
 cucayo
-chichi 
+chichi
 ruco
 ruca
 arraray
@@ -2273,7 +2244,7 @@ clasificar
 diamante
 rubi
 esmeraldas
-hospital 
+hospital
 medicina
 mentol
 precio
