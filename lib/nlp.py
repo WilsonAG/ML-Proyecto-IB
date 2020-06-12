@@ -8,6 +8,7 @@ import numpy as np
 import re
 from unidecode import unidecode
 import emoji
+import lib.emoticons as emo
 
 
 def do_cosine_method(fii, dictionary, docs):
@@ -18,8 +19,14 @@ def do_cosine_method(fii, dictionary, docs):
     return get_mtx_tf_idf(dictionary, docs, wtf, idf)
 
 
-def get_dictionary(doc):
-    f = open(doc, encoding='utf-8')
+def get_dictionary(good_words=True):
+    if good_words:
+        f = open('data/new/buenas.txt', encoding='utf-8')
+        emoticons = emo.get_emojis('data/emojis/good_emojis.json')
+    else:
+        f = open('data/new/mala.txt', encoding='utf-8')
+        emoticons = emo.get_emojis('data/emojis/bad_emojis.json')
+
     dictionary = []
     for i in f:
         dictionary.append(i)
@@ -27,7 +34,7 @@ def get_dictionary(doc):
     dictionary = list(map(lambda x: x.split(), dictionary))
     dictionary = list(map(clean_stemmer, dictionary))
     dictionary = list(map(lambda x: " ".join(x), dictionary))
-    return list(set(dictionary))
+    return list(set(dictionary))+emoticons
 
 
 def get_jaccard(query, document):

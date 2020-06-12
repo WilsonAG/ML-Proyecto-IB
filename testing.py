@@ -13,4 +13,4 @@ if __name__ == "__main__":
     fii_good = nlp.get_fii(twts, good_words)
     simi = nlp.do_cosine_method(fii_good, good_words, twts)
 
-    print(simi)
+    print(nlp.get_dictionary(False))
