@@ -131,7 +131,7 @@ def get_positions(token, docs):
     return all_matches
 
 
-def get_fii(docs, dictionary):
+def get_fii(docs, dictionary=[]):
     if len(dictionary) > 0:
         my_dict = get_dict(docs)
     else:
