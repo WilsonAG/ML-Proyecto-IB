@@ -57,6 +57,6 @@ if __name__ == "__main__":
     for i in good_fii:
         palabras.append(i[0])
     wtf_good=nlp.get_tf_word_bag(good_fii, good, docs,True)
-    print(wtf_good)
+    # id_good=nlp.get_df_idf()
     #wtf_bad=nlp.get_tf_word_bag(bad_fii,pa)
 

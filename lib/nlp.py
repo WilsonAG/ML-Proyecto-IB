@@ -1,4 +1,3 @@
-
 import timeit
 import math as ma
 from nltk.stem.porter import PorterStemmer
@@ -120,14 +119,48 @@ def get_positions(token, docs):
 
 
 def get_fii(docs, diccionary):
-    my_dict = diccionary
-    fii = map(lambda x: get_positions(x, docs), my_dict)
+    my_dict=diccionary
+    fii = map(lambda x: get_positions(x, docs),my_dict )
     return list(fii)
+
+
+def get_tf_word_bag(fii, palabras, documentos, weighted=True):
+    #print(palabras)
+    tb_tf = pd.DataFrame(float(0), index=palabras, columns=[
+                         x for x in range(len(documentos))])
+    for i in fii:
+        con = 0
+        for j in i:
+            if con != 0:
+                if weighted == False:
+                    tb_tf._set_value(i[0], j[0], j[1])  # tabla tf
+                else:
+                    tb_tf._set_value(i[0], j[0],(1+ma.log(j[1], 10)))  # tabla wtf
+            con += 1
+    return tb_tf
+
+
+def get_df_idf(palabras, tb_tf, tb_wtf, idf=True):
+    df = pd.DataFrame(float(0), index=palabras, columns=['frecuency'])
+    for index, row in tb_tf.iterrows():
+        con = 0
+        for i, ind in row.iteritems():
+            if ind != 0:
+                con += 1
+        if idf == True:
+            if con != 0:
+                op = ma.log((len(tb_wtf.columns)/con), 10)
+                df._set_value(index, 'frecuency', op)
+            else:
+                df._set_value(index, 'frecuency', con)
+        else:
+            df._set_value(index, 'frecuency', con)
+    return df
 
 
 def get_mtx_tf_idf(palabras, abstracts, tb_wtf, idf):
     tb_tf_idf = pd.DataFrame(float(0), index=palabras, columns=[
-                             x for x in range(len(abstracts))])
+                             'doc'+str(x) for x in range(len(abstracts))])
     for index, row in tb_wtf.iterrows():
         for i, ind in row.iteritems():
             # index nombre fila , # i columna nombre, #ind term frecuency
@@ -154,11 +187,11 @@ def get_cos_mtx(tf_idf_mtx):
     for i in range(len(labels)):
         for j in range(i, len(labels)):
 
-            doc1 = tf_idf_mtx[i].tolist()
-            doc2 = tf_idf_mtx[j].tolist()
+            doc1 = tf_idf_mtx['doc'+str(i)].tolist()
+            doc2 = tf_idf_mtx['doc'+str(j)].tolist()
             value = sum(val1*val2 for val1, val2 in zip(doc1, doc2))
-            cos_mtx[i][j] = value
-            cos_mtx[j][i] = value
+            cos_mtx['doc'+str(i)]['doc'+str(j)] = value
+            cos_mtx['doc'+str(j)]['doc'+str(i)] = value
 
     return cos_mtx
 
