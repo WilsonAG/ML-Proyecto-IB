@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweets Analysis</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/lumen/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-VMuWne6iwiifi8iEWNZMw8sDatgb6ntBpBIr67q0rZAyOQwfu/VKpnFntQrjxB5W" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+    <link rel="shortcut icon" href="https://cdn.svgporn.com/logos/bluemix.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">
+            <img class="logo" src="https://cdn.svgporn.com/logos/bluemix.svg" alt="logo">
+            Tweets Analysis
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/regresion">Regresion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container">
+
+        <h1 class="text-center mt-3">Tweet Analysis </h1>
+        <div class="col-md-4">
+            <form>
+                <div class="form-group">
+                    <label for="tweets">Ingrese la cantidad de tweets:</label>
+                    <input type="number" name="quantity" id="tweets" class="form-control">
+                </div>
+                <input type="submit" value="Buscar" class="btn btn-primary">
+            </form>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6 text-center">
+                <h2>Similitud de Coseno</h2>
+            </div>
+            <div class="col-md-6 text-center">
+                <h2>Similitud de Jaccard</h2>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-primary fixed-bottom text-white text-center">
+        <p>
+            Proyecto - Machine Learning
+            Desarrollado por:
+        </p>
+        <ul class="list-unstyled mb-0">
+            <li>Wilson Aguilar</li>
+            <li>Gabriel Cacuango</li>
+            <li>Ricardo Romo</li>
+            <li>Christian Lasso</li>
+        </ul>
+    </footer>
+</body>
+
+</html>

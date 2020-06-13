@@ -15,9 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from webapp.views import saludo
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+from webapp.views import index, regresion
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('saludo', saludo)
+    path('', index),
+    path('regresion/', regresion),
+
 ]
