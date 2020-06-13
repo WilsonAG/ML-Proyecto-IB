@@ -13,14 +13,20 @@ def index(req):
 
 def analysis(req):
     num_tweets = req.GET['quantity']
-    twts = ['hola a todo el mundo em fue bien en gracias',
-            'amo a todos que les avaya bien',
+    twts = ['🇪🇨ECUADOR🇪🇨 😷Casos: 46.356 ☠️Mortes: 3.874 🍀Curados: 22.865 ‼️Mortalidade: 8.4% 🧪Testes feitos: 134.141 #Coronavírus',
+            'Amo mucho el maquillaje ♥️ que pensé hacer una sombra de unicornio 🦄 #unicornio #makeup #maquillaje #arte #coronavirus #CuarentenaExtendida #Ecuador #gay #LGBT #gaynegros https://t.co/Z75WMvIxyQ',
 
-            'maldad en el mundo corrupcion y covid']
+            '@MarcoAnibal La sociedad civil ecuatoriana esperando un reportaje de estos temas de la señora @tinocotania y ella en otra onda. #Bucaram #coronavirus #Ecuador #EcuadorEntérate #EresPoblacionDeAltoRiesgoSi',
+            'Guayaquil fue ejemplo de la tragedia. Ahora ha logrado pasar de mas de 400 muertos diarios a ninguno. Ahora tambien deberíamos estar hablando de la gestión de esta ciudad. https://t.co/qCADbaloBe',
+            '#Ecuador registra 3.874 muertes oficiales y 46.356 positivos por coronavirus https://t.co/2i27wF8tvU']
+
+    # twts = tweets.get(int(num_tweets))
     cleaned = nlp.do_nlp(twts)
 
     good_dict = nlp.get_dictionary(True)
     bad_dict = nlp.get_dictionary(False)
+
+    jaccard_tags = nlp.get_jaccard_tags(set(good_dict), set(bad_dict), twts)
 
     good_fii = nlp.get_fii(cleaned, good_dict)
     bad_fii = nlp.get_fii(cleaned, bad_dict)
@@ -29,7 +35,7 @@ def analysis(req):
 
     cosine_tags = nlp.get_tags(good, bad, twts)
 
-    params = {'tweets': twts, 'cos_tags': cosine_tags}
+    params = {'jac_tags': jaccard_tags, 'cos_tags': cosine_tags}
     return render(req, 'home.html', params)
 
 

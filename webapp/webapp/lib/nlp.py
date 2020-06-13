@@ -11,6 +11,25 @@ import emoji
 import webapp.lib.emoticons as emo
 
 
+def get_jaccard_tags(positive_dict, negative_dict, original):
+    tags = {}
+    cleaned = do_nlp(original)
+    for i in range(len(cleaned)):
+        doc = set(cleaned[i])
+        pos_val = get_jaccard(positive_dict, doc)
+        neg_val = get_jaccard(negative_dict, doc)
+        content = original[i]
+        if pos_val > neg_val:
+            tags[content] = 'positivo'
+        elif neg_val > pos_val:
+            tags[content] = 'negativo'
+        else:
+            tags[content] = 'neutro'
+
+    print(tags)
+    return tags
+
+
 def get_tags(positive, negative, original):
     tags = {}
     for i in positive.columns:
