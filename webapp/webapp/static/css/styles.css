@@ -1,4 +1,29 @@
+:root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .logo {
     height: 3.25em;
     margin-right: 10px;
 }
+
+body {
+    min-height: 100vh;
+    
+}
+ 
+main {
+    min-height: 80vh;
+ }
+
+ footer {
+    position: relative;
+    height: 20%;
+    bottom: 0; 
+    width: 100%;
+ }
+
+
+ 

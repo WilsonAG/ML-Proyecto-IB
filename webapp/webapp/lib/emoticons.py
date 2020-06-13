@@ -4,20 +4,25 @@ import emoji
 
 
 def good_words():
-    file = open('../data/new/buenas.txt', 'r')
+    file = open('./data/diccionary/buenas.txt', 'r')
     text = file.read()
     items = text.split(",")
     return items
 
 
 def bad_words():
-    file = open('../data/new/mala.txt', 'r')
+    file = open('./data/diccionary/malas.txt', 'r')
     text = file.read()
     items = text.split(",")
     return items
 
 
-def get_emojis(doc):
+def get_emojis(good=False):
+    if good:
+        doc = '../data/emojis/good_emojis.json'
+    else:
+        doc = '../data/emojis/bad_emojis.json'
+
     emoticon = open(doc, 'r')
     emoticon = json.load(emoticon)
     emotico = []

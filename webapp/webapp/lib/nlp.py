@@ -8,7 +8,7 @@ import numpy as np
 import re
 from unidecode import unidecode
 import emoji
-import lib.emoticons as emo
+import webapp.lib.emoticons as emo
 
 
 def do_cosine_method(fii, dictionary, docs):
@@ -21,11 +21,11 @@ def do_cosine_method(fii, dictionary, docs):
 
 def get_dictionary(good_words=True):
     if good_words:
-        f = open('data/new/buenas.txt', encoding='utf-8')
-        emoticons = emo.get_emojis('data/emojis/good_emojis.json')
+        f = open('../data/new/buenas.txt', encoding='utf-8')
+        emoticons = emo.get_emojis(True)
     else:
-        f = open('data/new/mala.txt', encoding='utf-8')
-        emoticons = emo.get_emojis('data/emojis/bad_emojis.json')
+        f = open('../data/new/mala.txt', encoding='utf-8')
+        emoticons = emo.get_emojis()
 
     dictionary = []
     for i in f:

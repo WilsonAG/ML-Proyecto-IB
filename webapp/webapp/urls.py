@@ -19,12 +19,13 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from webapp.views import index, regresion
+from webapp.views import index, regresion, about, analysis
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
+    path('analysis/', analysis),
     path('regresion/', regresion),
-
+    path('about/', about),
 ]
