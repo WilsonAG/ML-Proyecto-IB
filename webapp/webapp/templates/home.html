@@ -1,5 +1,6 @@
 {%extends "base.html"%}
 {%block content%}
+{%load my_tags %}
 
 <div class="container">
 
@@ -26,12 +27,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {%for tweet in tweets%}
+                    {%for tweet in cos_tags%}
                     <tr>
                         <td>{{tweet}}</td>
-                        <td>sentimeinto...</td>
+                        <td>{{ cos_tags|get_item:tweet}}</td>
                     </tr>
                     {%endfor%}
+
                 </tbody>
             </table>
             {%endif%}

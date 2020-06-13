@@ -11,6 +11,21 @@ import emoji
 import webapp.lib.emoticons as emo
 
 
+def get_tags(positive, negative, original):
+    tags = {}
+    for i in positive.columns:
+        content = original[i]
+        val_pos = sum(positive[i])
+        val_neg = sum(negative[i])
+        if val_pos > val_neg:
+            tags[content] = 'positivo'
+        elif val_neg > val_pos:
+            tags[content] = 'negativo'
+        else:
+            tags[content] = 'neutro'
+    return tags
+
+
 def do_cosine_method(fii, dictionary, docs):
     tf = get_tf_word_bag(fii, dictionary, docs, True)
     wtf = get_tf_word_bag(fii, dictionary, docs, False)

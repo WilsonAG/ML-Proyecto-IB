@@ -27,6 +27,6 @@ if __name__ == "__main__":
     bad_fii = nlp.get_fii(docs, bad)
     good = nlp.do_cosine_method(good_fii, good, docs)  #
     bad = nlp.do_cosine_method(bad_fii, bad, docs)  #
-    print(good)
-    print(sum(good[0]))
-    print(bad.columns.tolist())
+    tags = nlp.get_tags(good, bad)
+    for i in tags:
+        print(docs[i], tags[i])
