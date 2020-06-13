@@ -15,7 +15,18 @@ def status(sent):
         else:
             sen.append(0)
     return sen
-
+def error(result,origin):
+    cont=0
+    size=len(result)
+    for i in range(size):
+        
+        if predictions[i] == te_sen[i]:
+            cont+=0
+        else:
+            cont+=1
+    erro=(cont*len(predictions))/100
+    print("el porcentaje de error es de ",erro," %")
+    return erro 
 
 if __name__ == "__main__":
     datac = pd.read_csv('./data/tweets/tweets.csv', encoding='utf-8')
@@ -59,5 +70,4 @@ if __name__ == "__main__":
     predictions = model.predict(tX)
     result=pd.DataFrame({'tweets':tweet,'regresion':predictions,'original':te_sen})
     print(result)
-    # print(predictions)
-    # print(len(predictions))
+    error(predictions,te_sen)
