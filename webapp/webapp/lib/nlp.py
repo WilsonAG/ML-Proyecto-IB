@@ -22,10 +22,10 @@ def do_cosine_method(fii, dictionary, docs):
 def get_dictionary(good_words=True):
     if good_words:
         f = open('data/new/buenas.txt', encoding='utf-8')
-        emoticons = emo.get_emojis(True)
+        emoticons = emo.get_emojis('data/emojis/good_emojis.json')
     else:
         f = open('data/new/mala.txt', encoding='utf-8')
-        emoticons = emo.get_emojis()
+        emoticons = emo.get_emojis('data/emojis/bad_emojis.json')
 
     dictionary = []
     for i in f:

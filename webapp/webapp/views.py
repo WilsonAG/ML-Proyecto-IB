@@ -1,14 +1,18 @@
 from django.http import HttpResponse
 from django.template import Template, Context
+from django.template.loader import get_template
 import datetime
+from webapp.lib import tweets
+from webapp.lib import emoticons
 
 
 def index(req):
-    home_template = open('webapp/templates/home.html')
-    home = Template(home_template.read())
-    home_template.close()
-    ctx = Context({"name": "Will"})
-    response = home.render(ctx)
+    home = get_template('home.html')
+    # my_tweets = tweets.get(10)
+    my_tweets = ['tw1', 'tw2']
+    emo = emoticons.good_words()
+    params = {'tweets': emo}
+    response = home.render(params)
     return HttpResponse(response)
 
 
