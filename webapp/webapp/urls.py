@@ -19,7 +19,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from webapp.views import index, regresion, about, analysis
+from webapp.views import index, regresion, about, analysis, external, vader
 
 
 urlpatterns = [
@@ -28,4 +28,6 @@ urlpatterns = [
     path('analysis/', analysis),
     path('regresion/', regresion),
     path('about/', about),
+    path('external/', external),
+    path('vader/', vader),
 ]
