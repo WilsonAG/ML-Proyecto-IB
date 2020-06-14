@@ -4,7 +4,7 @@ from django.template.loader import get_template
 from django.shortcuts import render
 import datetime
 
-from webapp.lib import tweets, emoticons, nlp
+from webapp.lib import tweets, emoticons, nlp, regresion as reg
 
 
 def index(req):
@@ -47,12 +47,16 @@ def analysis(req):
 
 
 def regresion(req):
-    file = open('webapp/templates/regresion.html')
-    page = Template(file.read())
-    file.close()
-    ctx = Context()
-    response = page.render(ctx)
-    return HttpResponse(response)
+    train, test = reg.load_data('../data/tweets/tweets.csv')
+    model = reg.eval(train, test)
+
+    result = reg.test_model(model, train, test)
+
+    result_html = str(reg.parse_html(result))
+
+    meta = reg.error(result)
+
+    return render(req, 'regresion.html', {'html': result_html, 'meta': meta})
 
 
 def about(req):
