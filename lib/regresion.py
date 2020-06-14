@@ -6,6 +6,7 @@ import emoji
 import random
 from sklearn.model_selection import train_test_split
 from sklearn import linear_model
+from bs4 import BeautifulSoup
 
 
 def status(sent):
@@ -62,6 +63,15 @@ def eval(train, test):
     return model
 
 
+def parse_html(result):
+    soup = BeautifulSoup(result[0:10].to_html(
+        classes=['table', 'table-hover'], border=0),
+        'html5lib')
+    soup.find('thead')['class'] = 'thead-dark'
+
+    return soup.find('table')
+
+
 def test_model(model, train, test):
     train_nlp = nlp.do_nlp(train['tweets'])
     test_nlp = nlp.do_nlp(test['tweets'])
@@ -84,7 +94,8 @@ def test_model(model, train, test):
     predictions = model.predict(tX)
     result = pd.DataFrame(
         {'tweets': tweet, 'regresion': predictions, 'original': te_sen})
-    print(result)
+
+    return result
     # error(predictions, te_sen)
 
     # if __name__ == "__main__":
