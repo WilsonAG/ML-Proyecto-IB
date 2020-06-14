@@ -1987,7 +1987,6 @@ ofensas
 ofensiva
 ofensivamente
 ofensiva
-oficioso
 ominoso
 ominosamente
 omisión
@@ -2241,7 +2240,6 @@ marionetas
 perplejo
 perplejidad
 misterioso
-curandero
 escrúpulo
 dilema
 pelea
@@ -2250,7 +2248,6 @@ pendencieramente
 peleas
 peleón
 anular
-queer
 cuestionable
 objeciones
 cobarde

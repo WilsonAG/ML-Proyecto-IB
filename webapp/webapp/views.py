@@ -2,9 +2,11 @@ from django.http import HttpResponse
 from django.template import Template, Context
 from django.template.loader import get_template
 from django.shortcuts import render
+from django import forms
+
 import datetime
 
-from webapp.lib import tweets, emoticons, nlp, regresion as reg
+from webapp.lib import tweets, emoticons, nlp, vader as v, regresion as reg
 
 
 def index(req):
@@ -57,6 +59,16 @@ def regresion(req):
     meta = reg.error(result)
 
     return render(req, 'regresion.html', {'html': result_html, 'meta': meta})
+
+
+def external(req):
+    return render(req, 'external.html')
+
+
+def vader(req):
+    tweet = req.POST['tweet']
+    res = v.analize(tweet)
+    return render(req, 'external.html', {'tweet': tweet, 'res': res})
 
 
 def about(req):

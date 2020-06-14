@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+{% block content%}
+
+<div class="container">
+
+    <h1 class="display-4 text-center mt-3">
+        External Analysis with <span class="font-weight-bold">Vader</span>
+    </h1>
+
+    <p class="text-justify lead">
+        Vader es una herramienta de análisis de sentimientos basada en reglas y léxico
+        que esta específicamente en sintonía con los sentimientos expresados en las
+        redes sociales.
+    </p>
+    <div class="row">
+        <div class="col-md-5">
+            <form action="/vader/" method="POST">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <textarea class="form-control" name="tweet" id="tweet" cols="30" rows="10"
+                        placeholder="Ingrese el contenido del tweet."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary d-block mx-auto">Generar</button>
+            </form>
+        </div>
+        <div class="col-md-5 mx-auto">{%if res %}
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Tweet</th>
+                        <th>Sentimiento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{tweet}}</td>
+                        <td>{{res}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            {%endif%}
+        </div>
+    </div>
+</div>
+{% endblock%}
