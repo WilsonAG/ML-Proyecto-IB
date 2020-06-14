@@ -19,19 +19,44 @@ def status(sent):
     return sen
 
 
-def error(result, origin):
-    cont = 0
+def error(result):
+    print(result)
+    erro=0
+    cont=0
+    pos=0
+    neg=0
     size = len(result)
+    regresion=(result['regresion'])
+    original=(result['original'])
+    print(original)
+    print(regresion)
     for i in range(size):
-
-        if predictions[i] == te_sen[i]:
+    
+        if regresion[i] == original[i]:
             cont += 0
+            if regresion[i]== 0:
+                neg+=1
+            else:
+                pos+=1
         else:
             cont += 1
-    erro = (cont*len(predictions))/100
-    print("el porcentaje de error es de ", erro, " %")
-    return erro
-
+            if regresion[i]== 0:
+                neg+=1
+            else:
+                pos+=1
+    print(cont)
+    print(pos,neg)
+    erro = (len(result)-cont)/len(result)*100
+    erro= 100-erro
+    pos=(pos*100)/len(result)
+    neg=(neg*100)/len(result)
+    print("el porcentaje de error es de ", erro, " %  positivas: " ,pos,"negativas: ",neg)
+    estadistic=[]
+    estadistic.append(erro)
+    estadistic.append(pos)
+    estadistic.append(neg)
+    print(estadistic)
+    return estadistic
 
 def load_data(path):
     data = pd.read_csv(path, encoding='utf-8')
