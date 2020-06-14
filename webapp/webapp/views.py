@@ -15,7 +15,6 @@ def analysis(req):
     num_tweets = req.GET['quantity']
     twts = ['🇪🇨ECUADOR🇪🇨 😷Casos: 46.356 ☠️Mortes: 3.874 🍀Curados: 22.865 ‼️Mortalidade: 8.4% 🧪Testes feitos: 134.141 #Coronavírus',
             'Amo mucho el maquillaje ♥️ que pensé hacer una sombra de unicornio 🦄 #unicornio #makeup #maquillaje #arte #coronavirus #CuarentenaExtendida #Ecuador #gay #LGBT #gaynegros https://t.co/Z75WMvIxyQ',
-
             '@MarcoAnibal La sociedad civil ecuatoriana esperando un reportaje de estos temas de la señora @tinocotania y ella en otra onda. #Bucaram #coronavirus #Ecuador #EcuadorEntérate #EresPoblacionDeAltoRiesgoSi',
             'Guayaquil fue ejemplo de la tragedia. Ahora ha logrado pasar de mas de 400 muertos diarios a ninguno. Ahora tambien deberíamos estar hablando de la gestión de esta ciudad. https://t.co/qCADbaloBe',
             '#Ecuador registra 3.874 muertes oficiales y 46.356 positivos por coronavirus https://t.co/2i27wF8tvU']
@@ -35,7 +34,15 @@ def analysis(req):
 
     cosine_tags = nlp.get_tags(good, bad, twts)
 
-    params = {'jac_tags': jaccard_tags, 'cos_tags': cosine_tags}
+    cos_pos = nlp.get_percent(cosine_tags)
+    cos_neg = nlp.get_percent(cosine_tags, False)
+
+    jac_pos = nlp.get_percent(jaccard_tags)
+    jac_neg = nlp.get_percent(jaccard_tags, False)
+
+    params = {'jac_tags': jaccard_tags, 'cos_tags': cosine_tags,
+              'cos_pos': cos_pos, 'cos_neg': cos_neg,
+              'jac_pos': jac_pos, 'jac_neg': jac_neg}
     return render(req, 'home.html', params)
 
 

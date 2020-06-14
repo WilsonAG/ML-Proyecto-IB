@@ -11,6 +11,16 @@ import emoji
 import webapp.lib.emoticons as emo
 
 
+def get_percent(tags, positive=True):
+    if positive:
+        quantity = sum(1 for tag in tags if tags[tag] ==
+                       'positivo')
+    else:
+        quantity = sum(1 for tag in tags if tags[tag] ==
+                       'negativo')
+    return (quantity/len(tags))*100
+
+
 def get_jaccard_tags(positive_dict, negative_dict, original):
     tags = {}
     cleaned = do_nlp(original)
@@ -25,8 +35,6 @@ def get_jaccard_tags(positive_dict, negative_dict, original):
             tags[content] = 'negativo'
         else:
             tags[content] = 'neutro'
-
-    print(tags)
     return tags
 
 

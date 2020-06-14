@@ -1890,7 +1890,6 @@ sabiduría
 sabio
 sabiamente
 ingenioso
-won
 preguntarse
 maravilloso
 maravillosamente
@@ -2293,7 +2292,6 @@ evolucion
 rebosar
 nubes
 oro
-Ecuador
 siempre
 hasta
 patria
