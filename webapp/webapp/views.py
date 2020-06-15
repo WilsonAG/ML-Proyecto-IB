@@ -15,13 +15,13 @@ def index(req):
 
 def analysis(req):
     num_tweets = req.GET['quantity']
-    twts = ['🇪🇨ECUADOR🇪🇨 😷Casos: 46.356 ☠️Mortes: 3.874 🍀Curados: 22.865 ‼️Mortalidade: 8.4% 🧪Testes feitos: 134.141 #Coronavírus',
-            'Amo mucho el maquillaje ♥️ que pensé hacer una sombra de unicornio 🦄 #unicornio #makeup #maquillaje #arte #coronavirus #CuarentenaExtendida #Ecuador #gay #LGBT #gaynegros https://t.co/Z75WMvIxyQ',
-            '@MarcoAnibal La sociedad civil ecuatoriana esperando un reportaje de estos temas de la señora @tinocotania y ella en otra onda. #Bucaram #coronavirus #Ecuador #EcuadorEntérate #EresPoblacionDeAltoRiesgoSi',
-            'Guayaquil fue ejemplo de la tragedia. Ahora ha logrado pasar de mas de 400 muertos diarios a ninguno. Ahora tambien deberíamos estar hablando de la gestión de esta ciudad. https://t.co/qCADbaloBe',
-            '#Ecuador registra 3.874 muertes oficiales y 46.356 positivos por coronavirus https://t.co/2i27wF8tvU']
+    # twts = ['🇪🇨ECUADOR🇪🇨 😷Casos: 46.356 ☠️Mortes: 3.874 🍀Curados: 22.865 ‼️Mortalidade: 8.4% 🧪Testes feitos: 134.141 #Coronavírus',
+    #         'Amo mucho el maquillaje ♥️ que pensé hacer una sombra de unicornio 🦄 #unicornio #makeup #maquillaje #arte #coronavirus #CuarentenaExtendida #Ecuador #gay #LGBT #gaynegros https://t.co/Z75WMvIxyQ',
+    #         '@MarcoAnibal La sociedad civil ecuatoriana esperando un reportaje de estos temas de la señora @tinocotania y ella en otra onda. #Bucaram #coronavirus #Ecuador #EcuadorEntérate #EresPoblacionDeAltoRiesgoSi',
+    #         'Guayaquil fue ejemplo de la tragedia. Ahora ha logrado pasar de mas de 400 muertos diarios a ninguno. Ahora tambien deberíamos estar hablando de la gestión de esta ciudad. https://t.co/qCADbaloBe',
+    #         '#Ecuador registra 3.874 muertes oficiales y 46.356 positivos por coronavirus https://t.co/2i27wF8tvU']
 
-    # twts = tweets.get(int(num_tweets))
+    twts = tweets.get(int(num_tweets))
     cleaned = nlp.do_nlp(twts)
 
     good_dict = nlp.get_dictionary(True)
